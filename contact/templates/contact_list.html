@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактные данные</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="display-3 text-center mb-4">Контактные данные</h1>
+    <div class="slider-container slider-content">
+        <div class="jumbotron">
+            <ul>
+                {% for contact in contacts %}
+                    <li>
+                        <div class="map-container mb-5 align-center">
+                            {{ contact.map_embed_code|safe }}
+                        </div>
+                        <strong>Адрес:</strong> {{ contact.address }}<br>
+                        <strong>Телефон:</strong> {{ contact.phone }}<br>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="footer-container">
+                {% include 'footer.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

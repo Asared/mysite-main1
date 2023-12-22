@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="display-3 text-center mb-4">Каталог товаров</h1>
+    <div class="slider-container slider-content">
+        <div class="jumbotron">
+            <div class="row">
+                {% for catalog in catalogs %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ catalog.name }}</h2>
+                                <img src="{{ catalog.image.url }}" alt="{{ catalog.name }}"
+                                     style="height: 200px; width: 200px;" class="rounded mx-auto d-block">
+                                <p class="card-text">Цена: <span style="color: red;">{{ catalog.price }}</span> ₽</p>
+                                <p class="card-text">{{ catalog.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="footer-container">
+                {% include 'footer.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,8 @@
+.static-image {
+    position: absolute;
+    top: 500px; /* Задайте нужное вам значение */
+    left: 350px; /* Задайте нужное вам значение */
+    width: 100px;
+    height: 100px;
+    background-color: #3498db; /* Задайте нужное вам значение */
+}

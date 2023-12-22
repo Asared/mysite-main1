@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+{% block content %}
+    <div class="container-fluid mt-5" id="main-content">
+        <h1 class="display-3 text-center mb-4">Новости</h1>
+        <div class="slider-container slider-content">
+            <div class="jumbotron">
+                <div class="row">
+                    {% for item in news %}
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ item.title }}</h4>
+                                    <p class="card-text">{{ item.content }}</p>
+                                    <p class="card-text"><small
+                                            class="text-muted">Опубликовано {{ item.pub_date }}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="footer-container">
+                    {% include 'footer.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>
